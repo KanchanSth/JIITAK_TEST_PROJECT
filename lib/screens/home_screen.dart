@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -78,15 +79,15 @@ class _HomeScreenState extends State<HomeScreen> {
               color: const Color.fromARGB(80, 208, 202, 202),
               borderRadius: BorderRadius.circular(16),
             ),
-            child: const TextField(
+            child: TextField(
               cursorColor: Colors.grey,
               textAlign: TextAlign.left,
               decoration: InputDecoration(
                 hintText: '北海道, 札幌市',
-                hintStyle: TextStyle(color: Colors.black, fontSize: 12),
+                hintStyle: TextStyle(color: Colors.black, fontSize: 12.sp),
                 border: InputBorder.none,
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
               ),
             ),
           ),
@@ -105,7 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
         bottom: PreferredSize(
             preferredSize: const Size.fromHeight(35),
             child: Container(
-              height: appHeight(context) / 25,
+              margin: const EdgeInsets.only(top: 5),
+              height: appHeight(context) * 0.05,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xFFFAAA14), Color(0xFFFFD78D)],
@@ -116,8 +118,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Center(
                 child: CustomText(
+                  size: 14.sp,
                   text: currentDate,
-                  color: Colors.white,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             )),
@@ -178,14 +182,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 0.1,
+            padding: EdgeInsets.symmetric(
+              vertical: 0.1.h,
             ),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: EdgeInsets.symmetric(vertical: 8.0.h),
                     child: CustomCardWidget(cardDetails: cardData[index]),
                   );
                 },

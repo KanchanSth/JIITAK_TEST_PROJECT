@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:test_project/core/app/dimensions.dart';
@@ -31,9 +32,9 @@ class StoreInfoEditScreen extends StatelessWidget {
                       Get.toNamed('/');
                     },
                   ),
-                  const CustomText(
+                  CustomText(
                     text: '店舗プロフィール編集',
-                    size: 15,
+                    size: 15.sp,
                   ),
                   IconButton(
                     icon: SvgPicture.asset('assets/icons/notifications.svg'),
@@ -124,16 +125,16 @@ class StoreInfoEditScreen extends StatelessWidget {
               text: 'ランチ時間',
             ),
             vSizedBox2,
-            const Column(
+            Column(
               children: [
                 RequiredText(
                   text: '定休日',
-                  size: 14,
+                  size: 14.sp,
                   fontWeight: FontWeight.w700,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 12, right: 12),
-                  child: CheckboxGrid(
+                  padding: EdgeInsets.symmetric(horizontal: 12.w),
+                  child: const CheckboxGrid(
                     isClosingDay: true,
                     labels: ['月', '火', '水', '木', '金', '土', '日', '祝'],
                     crossAxisCount: 4,
@@ -154,12 +155,7 @@ class StoreInfoEditScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 12, right: 12),
                   child: CustomTextDropdownButton(
                     controller: textController,
-                    items: const [
-                      '料理カテゴリー選択',
-                      '料理カテゴリー選択',
-                      '料理カテゴリー選択',
-                      '料理カテゴリー選択'
-                    ],
+                    items: const ['料理カテゴリー選択', '料理写真', '予算', 'キャッチコピー'],
                   ),
                 ),
               ],
@@ -184,7 +180,10 @@ class StoreInfoEditScreen extends StatelessWidget {
                             color: const Color.fromARGB(255, 231, 231, 231),
                           ),
                         ),
-                        child: const CustomText(text: '¥ 1,000'),
+                        child: CustomText(
+                          text: '¥ 1,000',
+                          size: 16.sp,
+                        ),
                       ),
                       hSizedBox1,
                       SvgPicture.asset('assets/icons/til.svg'),
@@ -200,7 +199,10 @@ class StoreInfoEditScreen extends StatelessWidget {
                             color: const Color.fromARGB(255, 231, 231, 231),
                           ),
                         ),
-                        child: const CustomText(text: '¥ 2,000'),
+                        child: CustomText(
+                          text: '¥ 2,000',
+                          size: 16.sp,
+                        ),
                       ),
                     ],
                   ),
@@ -239,7 +241,6 @@ class StoreInfoEditScreen extends StatelessWidget {
                 children: [
                   RequiredText(
                     text: '駐車場',
-                    size: 14,
                     fontWeight: FontWeight.w700,
                   ),
                   CheckboxGrid(
@@ -256,7 +257,6 @@ class StoreInfoEditScreen extends StatelessWidget {
                 children: [
                   RequiredText(
                     text: '来店プレゼント',
-                    size: 14,
                     fontWeight: FontWeight.w700,
                   ),
                   CheckboxGrid(
@@ -293,10 +293,10 @@ class StoreInfoEditScreen extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(5),
               ),
-              child: const Center(
+              child: Center(
                 child: CustomText(
                   text: '編集を保存',
-                  size: 14,
+                  size: 14.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_project/core/app/dimensions.dart';
 
 class StoreDetailsFormWidget extends StatelessWidget {
@@ -10,7 +11,7 @@ class StoreDetailsFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
+      padding: EdgeInsets.only(left: 12.w, right: 12.w, bottom: 15.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -19,12 +20,13 @@ class StoreDetailsFormWidget extends StatelessWidget {
               children: [
                 TextSpan(
                   text: title,
-                  style: const TextStyle(color: Colors.black, fontSize: 14),
+                  style: TextStyle(color: Colors.black, fontSize: 14.sp),
                 ),
-                const TextSpan(
+                TextSpan(
                   text: '*',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 235, 83, 8), fontSize: 14),
+                      color: const Color.fromARGB(255, 235, 83, 8),
+                      fontSize: 14.sp),
                 ),
               ],
             ),
@@ -34,7 +36,7 @@ class StoreDetailsFormWidget extends StatelessWidget {
             cursorColor: Colors.grey,
             decoration: InputDecoration(
               hintText: data,
-              hintStyle: const TextStyle(fontSize: 16, color: Colors.black),
+              hintStyle: TextStyle(fontSize: 16.sp, color: Colors.black),
               enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(6)),
                 borderSide: BorderSide(

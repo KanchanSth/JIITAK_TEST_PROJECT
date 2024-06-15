@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:test_project/controllers/check_box_controller.dart';
 
@@ -70,12 +71,17 @@ class CheckboxGrid extends StatelessWidget {
           return Row(
             children: [
               Checkbox(
-                side: const BorderSide(color: Color(0xFFE8E8E8), width: 1.5),
+                side: BorderSide(color: Color(0xFFE8E8E8), width: 1.5.w),
                 activeColor: const Color(0xFFEE7D42),
                 value: checkboxValue,
                 onChanged: onChanged,
               ),
-              Text(labels[index]),
+              Expanded(
+                child: Text(
+                  labels[index],
+                  style: TextStyle(fontSize: 16.sp),
+                ),
+              ),
             ],
           );
         });

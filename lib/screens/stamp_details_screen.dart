@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -27,8 +28,8 @@ class StampDetailsScreen extends StatelessWidget {
                         Get.toNamed('/');
                       },
                     ),
-                    const CustomText(
-                        text: 'スタンプカード詳細', size: 14, color: Colors.white),
+                    CustomText(
+                        text: 'スタンプカード詳細', size: 14.sp, color: Colors.white),
                     IconButton(
                       icon: SvgPicture.asset('assets/icons/minus_circle.svg'),
                       onPressed: () {},
@@ -36,15 +37,15 @@ class StampDetailsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomText(
                         text: 'Mer キッチン',
-                        size: 14,
+                        size: 14.sp,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -52,20 +53,20 @@ class StampDetailsScreen extends StatelessWidget {
                         children: [
                           CustomText(
                             text: '現在の獲得数',
-                            size: 14,
+                            size: 14.sp,
                             color: Colors.white,
                           ),
-                          SizedBox(width: 10),
+                          hSizedBox1,
                           CustomText(
                             text: '30',
-                            size: 28,
+                            size: 28.sp,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
-                          SizedBox(width: 10),
+                          hSizedBox1,
                           CustomText(
                             text: '個',
-                            size: 16,
+                            size: 16.sp,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
@@ -75,8 +76,8 @@ class StampDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(
-                child: SizedBox(height: 20),
+              SliverToBoxAdapter(
+                child: SizedBox(height: 20.h),
               ),
             ];
           },
@@ -92,7 +93,7 @@ class StampDetailsScreen extends StatelessWidget {
                         BorderRadius.vertical(top: Radius.circular(30)),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 15.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -117,8 +118,8 @@ class StampDetailsScreen extends StatelessWidget {
                                 builder: (BuildContext context) {
                                   return Container(
                                     width: MediaQuery.of(context).size.width,
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 2.0),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 2.w),
                                     child: Image.asset(imagePath,
                                         fit: BoxFit.cover),
                                   );
@@ -127,21 +128,21 @@ class StampDetailsScreen extends StatelessWidget {
                             }).toList(),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(right: 15),
+                        Padding(
+                          padding: EdgeInsets.only(right: 15.w),
                           child: Align(
                             alignment: Alignment.bottomRight,
                             child: CustomText(
                               text: '2 / 2枚目',
-                              size: 12,
-                              color: Color.fromARGB(255, 69, 69, 69),
+                              size: 12.sp,
+                              color: const Color.fromARGB(255, 69, 69, 69),
                             ),
                           ),
                         ),
-                        const CustomText(
+                        CustomText(
                           text: 'スタンプ獲得履歴',
-                          size: 14,
-                          color: Color.fromARGB(255, 69, 69, 69),
+                          size: 14.sp,
+                          color: const Color.fromARGB(255, 69, 69, 69),
                           fontWeight: FontWeight.bold,
                         ),
                         Expanded(
@@ -155,17 +156,17 @@ class StampDetailsScreen extends StatelessWidget {
                                       text: DateFormat('yyyy / MM / dd').format(
                                           DateTime.now()
                                               .subtract(Duration(days: item))),
-                                      size: 12,
+                                      size: 12.sp,
                                       color: const Color.fromARGB(
                                           255, 181, 181, 181),
                                     ),
-                                    subtitle: const CustomText(
+                                    subtitle: CustomText(
                                       text: 'スタンプを獲得しました。',
-                                      size: 14,
+                                      size: 14.sp,
                                     ),
-                                    trailing: const CustomText(
+                                    trailing: CustomText(
                                       text: '1 個',
-                                      size: 14,
+                                      size: 14.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                     onTap: () {},

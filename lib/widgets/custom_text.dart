@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
@@ -46,7 +47,7 @@ class RequiredText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 12, right: 12, bottom: 5),
+      padding: EdgeInsets.only(left: 12.w, right: 12.w, bottom: 5.h),
       child: Row(
         children: [
           RichText(
@@ -54,15 +55,16 @@ class RequiredText extends StatelessWidget {
               children: [
                 TextSpan(
                   text: text,
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14.sp,
+                  ),
                 ),
-                const TextSpan(
+                TextSpan(
                   text: '*',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 235, 83, 8), fontSize: 14),
+                      color: const Color.fromARGB(255, 235, 83, 8),
+                      fontSize: 14.sp),
                 ),
               ],
             ),

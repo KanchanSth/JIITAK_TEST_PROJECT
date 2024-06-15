@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:test_project/screens/home_screen.dart';
 import 'package:test_project/screens/initial_screen.dart';
@@ -18,19 +19,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      builder: (BuildContext context, Widget? widget) => Builder(
+        builder: (BuildContext context) => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+            useMaterial3: true,
+          ),
+          getPages: [
+            GetPage(name: '/', page: () => const InitialScreen()),
+            GetPage(name: '/home', page: () => const HomeScreen()),
+            GetPage(
+                name: '/stampDetails', page: () => const StampDetailsScreen()),
+            GetPage(name: '/editStoreInfo', page: () => StoreInfoEditScreen()),
+          ],
+        ),
       ),
-      getPages: [
-        GetPage(name: '/', page: () => const InitialScreen()),
-        GetPage(name: '/home', page: () => const HomeScreen()),
-        GetPage(name: '/stampDetails', page: () => const StampDetailsScreen()),
-        GetPage(name: '/editStoreInfo', page: () => StoreInfoEditScreen()),
-      ],
+      designSize: const Size(375, 812),
     );
   }
 }

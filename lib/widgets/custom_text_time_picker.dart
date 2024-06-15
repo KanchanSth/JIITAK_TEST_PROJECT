@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:test_project/controllers/time_picker_controller.dart';
@@ -20,14 +21,14 @@ class CustomTextTimePicker extends StatelessWidget {
           text: text,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12),
+          padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: Row(
             children: <Widget>[
               Obx(() {
                 return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: EdgeInsets.symmetric(horizontal: 12.0.w),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                     border: Border.all(
                       color: const Color.fromARGB(255, 231, 231, 231),
                     ),
@@ -47,7 +48,7 @@ class CustomTextTimePicker extends StatelessWidget {
                         value: time,
                         child: Text(
                           "${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}",
-                          style: const TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16.sp),
                         ),
                       );
                     }).toList(),
@@ -67,9 +68,9 @@ class CustomTextTimePicker extends StatelessWidget {
               hSizedBox1,
               Obx(() {
                 return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: EdgeInsets.symmetric(horizontal: 12.0.w),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
+                    borderRadius: BorderRadius.circular(5.0.r),
                     border: Border.all(
                       color: const Color.fromARGB(255, 231, 231, 231),
                     ),
@@ -89,7 +90,7 @@ class CustomTextTimePicker extends StatelessWidget {
                         value: time,
                         child: Text(
                           "${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}",
-                          style: const TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16.sp),
                         ),
                       );
                     }).toList(),

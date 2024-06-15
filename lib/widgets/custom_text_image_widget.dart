@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_project/core/app/dimensions.dart';
 import 'package:test_project/widgets/custom_text.dart';
 
@@ -27,13 +28,15 @@ class CustomTextImageWidget extends StatelessWidget {
             ? const SizedBox.shrink()
             : CustomRequiredText(pText: pText, text: text),
         Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
+          padding: EdgeInsets.only(left: 12.w, right: 12.w, bottom: 15.h),
           child: Row(
             children: [
-              Image.asset(image1),
-              Image.asset(image2),
-              Image.asset(
-                image3,
+              Expanded(child: Image.asset(image1)),
+              Expanded(child: Image.asset(image2)),
+              Expanded(
+                child: Image.asset(
+                  image3,
+                ),
               ),
             ],
           ),
@@ -71,15 +74,16 @@ class CustomRequiredText extends StatelessWidget {
               children: [
                 TextSpan(
                   text: pText,
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14.sp,
+                  ),
                 ),
-                const TextSpan(
+                TextSpan(
                   text: '*',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 235, 83, 8), fontSize: 14),
+                      color: const Color.fromARGB(255, 235, 83, 8),
+                      fontSize: 14.sp),
                 ),
               ],
             ),
@@ -87,7 +91,7 @@ class CustomRequiredText extends StatelessWidget {
           hSizedBox1,
           CustomText(
             text: '($text)',
-            size: 14,
+            size: 14.sp,
             color: const Color.fromARGB(255, 156, 152, 150),
           )
         ],
