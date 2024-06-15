@@ -17,18 +17,18 @@ class CustomCardWidget extends StatelessWidget {
           elevation: 3,
           borderRadius: BorderRadius.circular(16.0),
           child: Container(
-            height: appHeight(context) / 1.6,
             width: appWidth(context),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Stack(
                   children: [
                     Container(
-                      height: (appHeight(context) / 1.6) / 2,
+                      height: appHeight(context) * 0.3,
                       width: appWidth(context),
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.vertical(
@@ -56,9 +56,9 @@ class CustomCardWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                Container(
-                    height: (appHeight(context) / 1.6) / 2,
-                    padding: const EdgeInsets.all(16.0),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -123,7 +123,9 @@ class CustomCardWidget extends StatelessWidget {
                           ],
                         ),
                       ],
-                    )),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
